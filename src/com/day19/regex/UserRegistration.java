@@ -5,6 +5,7 @@ package com.day19.regex;
  * As a User needs to check the regex pattern for the lastName 
  * As a User needs to check the regex pattern for the emailId 
  * As a User needs to check the regex pattern for the MobileNumber
+ * As a User needs to check the regex pattern for Password rule1 minimum 8 characters
 */
 
 /**
@@ -90,6 +91,20 @@ public class UserRegistration {
 			System.out.println("Please Enter a Valid Mobile Num ex:- 91 9090909090");
 	}
 
+	/**
+	 * create method passwordRule1() which contains minimum 8 characters
+	 */
+	public void passWordRule1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter password :  ");
+		String passWord = sc.nextLine();
+		boolean check = Pattern.matches("[a-zA-Z]{8,}", passWord);
+		if (check)
+			System.out.println("Valid");
+		else
+			System.out.println("Please Enter a Valid password, it should have minimum 8 characters");
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		/*
@@ -103,5 +118,6 @@ public class UserRegistration {
 		user.lastNameCheck();
 		user.email();
 		user.mobileNum();
+		user.passWordRule1();
 	}
 }
