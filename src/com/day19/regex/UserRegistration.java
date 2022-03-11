@@ -152,7 +152,7 @@ public class UserRegistration {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter password :  ");
 		String passWord = sc.nextLine();
-		boolean check = Pattern.matches("[A-Z]{1}[a-z]{5,}[0-9]{1}[!@#$%^&*~]{1}", passWord);
+		boolean check = Pattern.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&]{1})[A-Za-z\\d@$!%*?&]{8,}$", passWord);
 		if (check)
 			System.out.println("Valid");
 		else
