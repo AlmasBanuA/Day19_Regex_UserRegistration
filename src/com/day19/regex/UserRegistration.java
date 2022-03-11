@@ -1,6 +1,9 @@
 package com.day19.regex;
 
 /*
+ * -----------------------------------------------------------
+ * Procedure :
+ * -----------------------------------------------------------
  * As a User needs to check the regex pattern for the firstName
  * As a User needs to check the regex pattern for the lastName 
  * As a User needs to check the regex pattern for the emailId 
@@ -10,6 +13,7 @@ package com.day19.regex;
  * As a User needs to check the regex pattern for Password rule3 which contains minimum 1 Numeric
  * As a User needs to check the regex pattern for Password rule4 which contains minimum 8 characters with 1
  * upper case ,1 Numeric and exactly one special character
+ * As a User needs to check the regex pattern Should clear the all emails
 */
 
 /**
@@ -156,6 +160,17 @@ public class UserRegistration {
 					"Please Enter a Valid password, it should have minimum 8 characters with, 1 upper case, 1 Numeric and 1 Special Char ");
 	}
 
+	/*
+	 * create method emailUniversal which satisfies for all eMails given to check
+	 */
+	public void emailUniversal(String eMail) {
+		boolean check = Pattern.matches("[a-zA-Z0-9_.]*[-]*[+]*[0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+", eMail);
+		if (check)
+			System.out.println("Valid");
+		else
+			System.out.println("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" latter");
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		/*
@@ -173,5 +188,19 @@ public class UserRegistration {
 		user.passWordRule2();
 		user.passWordRule3();
 		user.passWordRule4();
+
+		/*
+		 * this is code for which satisfies for all emails given to check
+		 */
+		user.emailUniversal("abc@yahoo.com");
+		user.emailUniversal("abc-100@yahoo.com");
+		user.emailUniversal("abc.100@yahoo.com");
+		user.emailUniversal("abc111@abc.com");
+		user.emailUniversal("abc-100@abc.net");
+		user.emailUniversal("abc.100@abc.com.au");
+		user.emailUniversal("abc@1.com");
+		user.emailUniversal("abc@gmail.com.com");
+		user.emailUniversal("abc+100@gmail.com.com");
+
 	}
 }
