@@ -1,5 +1,14 @@
 package com.day19.regex;
 
+/*
+ *As a User needs to  check the regex pattern for the firstName
+ *As a User needs to check the regex pattern for the lastName 
+*/
+
+/**
+ * If we want to represent a group of strings according to a particular pattern then we should go for regular
+ * expressions
+ */
 import java.util.Scanner;
 import java.util.regex.*;
 
@@ -24,6 +33,23 @@ public class UserRegistration {
 			System.out.println("Please Enter a Valid firstName with Only \"One Starting Capital\" letter");
 	}
 
+	public void lastNameCheck() {
+		/*
+		 * It will take the input from the User
+		 */
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Last Name of User: ");
+		String lName = sc.next();
+		/*
+		 * As a User needs to check the regex pattern for the lastName
+		 */
+		boolean check = Pattern.matches("^[A-Z]{1}+[a-z]{3,}$", lName);
+		if (check)
+			System.out.println("Valid");
+		else
+			System.out.println("Please Enter a Valid Last Name with Only \"One Starting Capital\" letter");
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		/*
@@ -34,6 +60,6 @@ public class UserRegistration {
 		System.out.println("Welcome to User Registration Program");
 
 		user.firstNameCheck();
-
+		user.lastNameCheck();
 	}
 }
